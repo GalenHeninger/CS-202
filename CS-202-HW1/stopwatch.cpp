@@ -19,6 +19,9 @@ class Stopwatch {
         void start () {
             _startTime = system_clock::now();
         }
+        void stop () {
+            _endTime = system_clock::now();
+        }
 
     private:
         static std::chrono::time_point<std::chrono::system_clock> _startTime;

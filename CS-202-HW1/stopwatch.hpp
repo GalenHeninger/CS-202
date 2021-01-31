@@ -11,4 +11,6 @@
 
 #include <stdio.h>
 
+class Stopwatch;
+
 #endif /* stopwatch_hpp */
