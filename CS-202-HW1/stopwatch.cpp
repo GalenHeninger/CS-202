@@ -15,7 +15,14 @@ using std::chrono::system_clock;
 
 class Stopwatch {
     
+    public:
+        void start () {
+            _startTime = system_clock::now();
+        }
 
+    private:
+        static std::chrono::time_point<std::chrono::system_clock> _startTime;
+        static std::chrono::time_point<std::chrono::system_clock> _endTime;
     
 };
 

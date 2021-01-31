@@ -8,6 +8,7 @@
 
 #include <iostream>
 
+#include "stopwatch.hpp"
 
 using std::cout;
 
