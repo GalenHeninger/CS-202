@@ -10,6 +10,7 @@
 #include <ctime>
 
 using std::chrono::system_clock;
+using std::ctime;
 
 #include "stopwatch.hpp"
 
@@ -19,8 +20,13 @@ class Stopwatch {
         void start () {
             _startTime = system_clock::now();
         }
+    
         void stop () {
             _endTime = system_clock::now();
+        }
+    
+        std::chrono::duration<double> getDuration () {
+            return _endTime - _startTime;
         }
 
     private:
