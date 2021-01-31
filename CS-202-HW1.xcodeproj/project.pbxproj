@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F886C4E725C631A000A5937F /* stopwatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F886C4E525C631A000A5937F /* stopwatch.cpp */; };
 		F8FC74AE25BA858A002CA571 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8FC74AD25BA858A002CA571 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F886C4E525C631A000A5937F /* stopwatch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stopwatch.cpp; sourceTree = "<group>"; };
+		F886C4E625C631A000A5937F /* stopwatch.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = stopwatch.hpp; sourceTree = "<group>"; };
 		F8FC74AA25BA858A002CA571 /* CS-202-HW1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CS-202-HW1"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8FC74AD25BA858A002CA571 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				F8FC74AD25BA858A002CA571 /* main.cpp */,
+				F886C4E525C631A000A5937F /* stopwatch.cpp */,
+				F886C4E625C631A000A5937F /* stopwatch.hpp */,
 			);
 			path = "CS-202-HW1";
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8FC74AE25BA858A002CA571 /* main.cpp in Sources */,
+				F886C4E725C631A000A5937F /* stopwatch.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
