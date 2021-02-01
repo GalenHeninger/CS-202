@@ -16,22 +16,28 @@ using std::ctime;
 
 class Stopwatch {
     
-    public:
-        void start () {
-            _startTime = system_clock::now();
-        }
+public:
     
-        void stop () {
-            _endTime = system_clock::now();
-        }
-    
-        std::chrono::duration<double> getDuration () {
-            return _endTime - _startTime;
-        }
+    Stopwatch() : _startTime{system_clock::now()},
+                  _endTime{system_clock::now()}
+    {}
 
-    private:
-        static std::chrono::time_point<std::chrono::system_clock> _startTime;
-        static std::chrono::time_point<std::chrono::system_clock> _endTime;
+    void start () {
+        _startTime = system_clock::now();
+    }
+
+    void stop () {
+        _endTime = system_clock::now();
+    }
+
+    std::chrono::duration<double> getDuration () {
+        return _endTime - _startTime;
+    }
+
+private:
+    
+    std::chrono::time_point<std::chrono::system_clock> _startTime;
+    std::chrono::time_point<std::chrono::system_clock> _endTime;
     
 };
 
