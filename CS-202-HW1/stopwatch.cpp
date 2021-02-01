@@ -30,8 +30,8 @@ public:
         _endTime = system_clock::now();
     }
 
-    std::chrono::duration<double> getDuration () {
-        return _endTime - _startTime;
+    double getDuration () {
+        return std::chrono::duration<double>(_endTime - _startTime).count();
     }
 
 private:
