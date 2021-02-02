@@ -6,40 +6,7 @@
 //  Copyright © 2021 Galen. All rights reserved.
 //
 
-#include <chrono>
-#include <ctime>
 
-using std::chrono::system_clock;
-using std::ctime;
-
-#include "stopwatch.hpp"
-
-class Stopwatch {
-    
-public:
-    
-    Stopwatch() : _startTime{system_clock::now()},
-                  _endTime{system_clock::now()}
-    {}
-
-    void start () {
-        _startTime = system_clock::now();
-    }
-
-    void stop () {
-        _endTime = system_clock::now();
-    }
-
-    double getDuration () {
-        return std::chrono::duration<double>(_endTime - _startTime).count();
-    }
-
-private:
-    
-    std::chrono::time_point<std::chrono::system_clock> _startTime;
-    std::chrono::time_point<std::chrono::system_clock> _endTime;
-    
-};
 
 
 

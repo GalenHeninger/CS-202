@@ -9,8 +9,5 @@
 #ifndef stopwatch_hpp
 #define stopwatch_hpp
 
-#include <stdio.h>
-
-class Stopwatch;
 
 #endif /* stopwatch_hpp */
