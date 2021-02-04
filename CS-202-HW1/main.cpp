@@ -15,7 +15,6 @@
 using std::cout;
 using std::chrono::system_clock;
 using std::ctime;
-using std::search;
 
 class Stopwatch {
     
@@ -54,7 +53,7 @@ int main() {
     // Create distribution for RNG
     std::random_device device;
     std::mt19937 generator(device());
-    std::uniform_int_distribution<int> distribution(0, 1);
+    std::uniform_int_distribution<int> distribution(0, 10);
     
     // Create vector
     std::vector<int> v(1000);
@@ -66,21 +65,41 @@ int main() {
     
     std::generate(v.begin(), v.end(), gen);
     
-    int heads = std::accumulate(v.begin(), v.end(), 0);
-    
-    std::cout << "Heads: " << heads << "\nTails: " << 1000 - heads << std::endl;
-    
-    
     Stopwatch timer;
     
-    // Test search
+    // Test std::find
     timer.start();
-    
+    auto it = std::find(v.begin(), v.end(), -1);
     timer.stop();
     
-    double seconds = timer.getSeconds();
+    double seconds_find = timer.getSeconds();
     
-    cout << seconds << "\n";
+    // Test std::search
+    std::vector<int> v2 ={-1};
+    timer.start();
+    auto it2 = std::search(v.begin(), v.end(), v2.begin(), v2.end());
+    timer.stop();
+    
+    double seconds_search = timer.getSeconds();
+    
+    //Test std::sort
+    timer.start();
+    std::sort(v.begin(), v.end());
+    timer.stop();
+    
+    double seconds_sort = timer.getSeconds();
+    
+    // Test binary search
+    timer.start();
+    auto it3 = std::binary_search(v.begin(), v.end(), -1);
+    timer.stop();
+    
+    double seconds_binary = timer.getSeconds();
+    
+    cout << seconds_find << " seconds for std::find.\n";
+    cout << seconds_search << " seconds for std::search.\n";
+    cout << seconds_sort << " seconds for std::sort.\n";
+    cout << seconds_binary << " seconds for std::binary_search.\n";
     
     return 0;
 }
