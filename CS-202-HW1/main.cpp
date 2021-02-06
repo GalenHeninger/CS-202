@@ -56,7 +56,7 @@ int main() {
     std::uniform_int_distribution<int> distribution(0, 10);
     
     // Create vector
-    std::vector<int> v(1000);
+    std::vector<int> v(10000000);
     
     // Generate
     auto gen = [&distribution, &generator](){
@@ -67,39 +67,63 @@ int main() {
     
     Stopwatch timer;
     
+    std::vector<int> it_offset = {9, 99, 999, 9999, 99999, 999999, 9999999}; //, 99999999, 999999999
+    
+    std::cout << "Vector lengths\n";
+    std::cout << "10 100 1000 10000 100000 1000000 10000000\n";
+    
+    std::cout << "Timing for std::find (seconds)\n";
+    
     // Test std::find
-    timer.start();
-    auto it = std::find(v.begin(), v.end(), -1);
-    timer.stop();
+    for (const int& i : it_offset) {
+        timer.start();
+        auto it = std::find(v.begin(), v.begin() + i, -1);
+        timer.stop();
+        std::cout << timer.getSeconds();
+        std::cout << " ";
+    }
     
-    double seconds_find = timer.getSeconds();
+    std::cout << std::endl;
     
+    std::cout << "Timing for std::search (seconds)\n";
+        
     // Test std::search
     std::vector<int> v2 ={-1};
-    timer.start();
-    auto it2 = std::search(v.begin(), v.end(), v2.begin(), v2.end());
-    timer.stop();
+    for (const int& i : it_offset) {
+        timer.start();
+        auto it2 = std::search(v.begin(), v.begin() + i, v2.begin(), v2.end());
+        timer.stop();
+        std::cout << timer.getSeconds();
+        std::cout << " ";
+    }
     
-    double seconds_search = timer.getSeconds();
+    std::cout << std::endl;
+    
+    std::cout << "Timing for std::sort (seconds)\n";
     
     //Test std::sort
-    timer.start();
-    std::sort(v.begin(), v.end());
-    timer.stop();
+    for (const int& i : it_offset) {
+        timer.start();
+        std::sort(v.begin(), v.begin() + i);
+        timer.stop();
+        std::cout << timer.getSeconds();
+        std::cout << " ";
+    }
     
-    double seconds_sort = timer.getSeconds();
+    std::cout << std::endl;
+    
+    std::cout << "Timing for std::binary_search (seconds)\n";
     
     // Test binary search
-    timer.start();
-    auto it3 = std::binary_search(v.begin(), v.end(), -1);
-    timer.stop();
+    for (const int& i : it_offset) {
+        timer.start();
+        auto it3 = std::binary_search(v.begin(), v.begin() + i, -1);
+        timer.stop();
+        std::cout << timer.getSeconds();
+        std::cout << " ";
+    }
     
-    double seconds_binary = timer.getSeconds();
-    
-    cout << seconds_find << " seconds for std::find.\n";
-    cout << seconds_search << " seconds for std::search.\n";
-    cout << seconds_sort << " seconds for std::sort.\n";
-    cout << seconds_binary << " seconds for std::binary_search.\n";
+    std::cout << std::endl;
     
     return 0;
 }
